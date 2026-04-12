@@ -3,7 +3,7 @@
 My personal cybersecurity portfolio website — built with pure HTML/CSS/JS, hosted on GitHub Pages.
 
 ## 🌐 Live Site
-**https://yourusername.github.io**
+**https://DesireSec.github.io**
 
 ## 📁 Structure
 ```
