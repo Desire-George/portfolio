@@ -317,22 +317,20 @@
 
   .about-text p { margin-bottom: 1rem; }
 
-  .skills-block { }
-
-  .skill-group { margin-bottom: 1.5rem; }
-
-  .skill-group-label {
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.75rem;
+  /* SKILLS MATRIX */
+  .skills-container { display: flex; flex-direction: column; gap: 1.5rem; }
+  
+  .skill-category h3 { 
+    font-size: 12px; 
+    letter-spacing: 0.05em; 
+    color: var(--text); 
+    margin-bottom: 0.75rem; 
   }
-
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
+  
+  .skills-list { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 8px; 
   }
 
   .skill-tag {
@@ -437,16 +435,21 @@
 
   .cert-item:hover { border-color: var(--border-hover); background: var(--bg3); }
 
-  .cert-name {
-    font-family: var(--font-head);
-    font-size: 15px;
-    font-weight: 700;
+  .cert-icon { font-size: 24px; }
+  
+  .cert-details { flex: 1; }
+  
+  .cert-details h4 { 
+    font-family: var(--font-head); 
+    font-size: 15px; 
+    font-weight: 700; 
+    color: var(--text); 
+    margin-bottom: 2px; 
   }
-
-  .cert-provider {
-    font-size: 11px;
-    color: var(--muted);
-    margin-top: 3px;
+  
+  .cert-details p { 
+    font-size: 12px; 
+    color: var(--muted); 
   }
 
   .cert-status {
@@ -461,6 +464,8 @@
   .status-done { background: rgba(104,211,145,0.12); color: var(--accent2); border: 1px solid rgba(104,211,145,0.25); }
   .status-progress { background: rgba(246,173,85,0.12); color: var(--accent3); border: 1px solid rgba(246,173,85,0.25); }
   .status-planned { background: rgba(122,128,148,0.12); color: var(--muted); border: 1px solid var(--border); }
+  
+  .in-progress { border-color: rgba(246,173,85,0.3); }
 
   /* WRITEUPS */
   .writeup-list { display: flex; flex-direction: column; gap: 1px; }
@@ -595,7 +600,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">Desire.sec</div>
   <ul class="nav-links">
@@ -608,7 +612,6 @@
   <button class="hamburger">☰</button>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-glow"></div>
   <div class="hero-content">
@@ -616,9 +619,9 @@
     <h1>Desire <span>George</span></h1>
     <p class="hero-sub">Cybersecurity professional based in Abuja, Nigeria. Focused on Blue Team operations, threat analysis, and building practical security skills through hands-on labs and CTF challenges.</p>
     <div class="hero-badges">
-      <span class="badge badge-blue">CompTIA Security+ (in view)</span>
-      <span class="badge badge-green">TryHackMe Top 15%</span>
-      <span class="badge badge-amber">Cisco Certified</span>
+      <span class="badge badge-blue">ISC2 CC Certified</span>
+      <span class="badge badge-green">Blue Teamer</span>
+      <span class="badge badge-amber">Cisco CyberOps (In View)</span>
       <span class="badge badge-blue">SOC Analyst</span>
     </div>
     <div class="hero-cta">
@@ -627,7 +630,6 @@
     </div>
   </div>
 
-  <!-- TERMINAL -->
   <div class="terminal">
     <div class="terminal-bar">
       <div class="dot dot-r"></div>
@@ -652,46 +654,57 @@
 
 <hr class="divider">
 
-<!-- ABOUT -->
 <section id="about" class="fade-in">
   <div class="section-label">// 01 — About</div>
   <div class="section-title">Who I Am</div>
   <div class="about-grid">
     <div class="about-text">
-      <p>I am a cybersecurity professional based with a strong focus on [Blue Team / SOC Analysis]. I am passionate about understanding how systems can be compromised and how to defend them effectively.</p>
-      <p>I build my skills through hands-on labs and real-world simulations. Every project on this site represents something I actually did, documented step by step.</p>
-      <p>I am currently pursuing CompTia Security+ and actively looking for opportunities to contribute to a security team.</p>
+      <p>I am a dedicated cybersecurity professional and Blue Teamer actively seeking a Junior SOC Analyst role. With a strong foundation in threat intelligence, network monitoring, and incident triage, my goal is to proactively identify, analyze, and remediate security threats to protect organizational infrastructure.</p>
+      <p>Rather than just learning theory, I take a highly practical approach to cybersecurity. From deploying MISP instances to map Advanced Persistent Threat (APT) infrastructure, to utilizing Ansible Infrastructure as Code (IaC) to automate vulnerability patching via Nessus, I thrive on building resilient, automated defenses.</p>
+      <p>I am eager to bring my analytical mindset, hands-on lab experience, and passion for continuous improvement to a dynamic Security Operations Center.</p>
     </div>
     <div class="skills-block">
-      <div class="skill-group">
-        <div class="skill-group-label">Security Tools</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Nmap</span>
-          <span class="skill-tag">Wireshark</span>
-          <span class="skill-tag">Metasploit</span>
-          <span class="skill-tag">Burp Suite</span>
-          <span class="skill-tag">Splunk</span>
-          <span class="skill-tag">Nessus</span>
-          <span class="skill-tag">YARA</span>
+      <div class="skills-container">
+        
+        <div class="skill-category">
+          <h3>🔍 Security Operations & Monitoring</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Wazuh (SIEM)</span>
+            <span class="skill-tag">Sysmon</span>
+            <span class="skill-tag">Wireshark</span>
+            <span class="skill-tag">Log Analysis</span>
+          </div>
         </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-label">Platforms</div>
-        <div class="skill-tags">
-          <span class="skill-tag">TryHackMe</span>
-          <span class="skill-tag">HackTheBox</span>
-          <span class="skill-tag">Blue Team Labs</span>
-          <span class="skill-tag">LetsDefend</span>
+        
+        <div class="skill-category">
+          <h3>🛡️ Threat Intel & Malware Analysis</h3>
+          <div class="skills-list">
+            <span class="skill-tag">MISP</span>
+            <span class="skill-tag">MITRE ATT&CK</span>
+            <span class="skill-tag">VirusTotal</span>
+            <span class="skill-tag">Any.Run</span>
+          </div>
         </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-label">Focus Areas</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Network Security</span>
-          <span class="skill-tag">Threat Analysis</span>
-          <span class="skill-tag">Incident Response</span>
-          <span class="skill-tag">OSINT</span>
+
+        <div class="skill-category">
+          <h3>⚙️ Vulnerability Management & Automation</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Tenable Nessus</span>
+            <span class="skill-tag">Ansible (IaC)</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Patch Management</span>
+          </div>
         </div>
+
+        <div class="skill-category">
+          <h3>💻 Scripting & OS</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Bash</span>
+            <span class="skill-tag">PowerShell</span>
+            <span class="skill-tag">Linux (Kali/Debian)</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -699,7 +712,6 @@
 
 <hr class="divider">
 
-<!-- PROJECTS -->
 <section id="projects" class="fade-in">
   <div class="section-label">// 02 — Projects</div>
   <div class="section-title">Hands-on Work</div>
@@ -755,81 +767,85 @@
     </div>
 
     <div class="project-card">
-  <div class="project-card-icon">🛡️</div>
-  <div class="project-card-title">PharmGuard Threat Modeling</div>
-  <div class="project-card-desc">Served as Assistant Team Lead for an AI-powered inventory system. Authored a STRIDE Threat Model Report to define binding security requirements and enforce RBAC.</div>
-  <div class="project-card-tags">
-    <span class="tag-sm">Threat Modeling</span>
-    <span class="tag-sm">STRIDE</span>
-    <span class="tag-sm">AppSec</span>
-  </div>
-  <a href="https://github.com/Desire-George/pharmguard-threat-model" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
-</div>
-
-<div class="project-card">
-  <div class="project-card-icon">🕵️‍♂️</div>
-  <div class="project-card-title">MISP Threat Intel Investigation</div>
-  <div class="project-card-desc">Deployed a MISP instance to aggregate OSINT feeds and FireHOL blocklists. Extracted and analyzed IOCs related to the El Machete APT.</div>
-  <div class="project-card-tags">
-    <span class="tag-sm">MISP</span>
-    <span class="tag-sm">Threat Intel</span>
-    <span class="tag-sm">Docker</span>
-  </div>
-  <a href="https://github.com/Desire-George/misp-threat-intel-elmachete" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
-</div>
+      <div class="project-card-icon">🛡️</div>
+      <div class="project-card-title">PharmGuard Threat Modeling</div>
+      <div class="project-card-desc">Served as Assistant Team Lead for an AI-powered inventory system. Authored a STRIDE Threat Model Report to define binding security requirements and enforce RBAC.</div>
+      <div class="project-card-tags">
+        <span class="tag-sm">Threat Modeling</span>
+        <span class="tag-sm">STRIDE</span>
+        <span class="tag-sm">AppSec</span>
+      </div>
+      <a href="https://github.com/Desire-George/pharmguard-threat-model" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+    </div>
 
     <div class="project-card">
-  <div class="project-card-icon">⚙️</div>
-  <div class="project-card-title">Automated Vulnerability Management</div>
-  <div class="project-card-desc">Executed the full vulnerability management lifecycle. Performed credentialed and web app scans using Nessus, configured SMTP alerting, and automated server patching using Ansible IaC.</div>
-  <div class="project-card-tags">
-    <span class="tag-sm">Nessus</span>
-    <span class="tag-sm">Ansible</span>
-    <span class="tag-sm">Patching</span>
-  </div>
-  <a href="https://github.com/Desire-George/automated-vulnerability-management" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
-</div>
+      <div class="project-card-icon">🕵️‍♂️</div>
+      <div class="project-card-title">MISP Threat Intel Investigation</div>
+      <div class="project-card-desc">Deployed a MISP instance to aggregate OSINT feeds and FireHOL blocklists. Extracted and analyzed IOCs related to the El Machete APT.</div>
+      <div class="project-card-tags">
+        <span class="tag-sm">MISP</span>
+        <span class="tag-sm">Threat Intel</span>
+        <span class="tag-sm">Docker</span>
+      </div>
+      <a href="https://github.com/Desire-George/misp-threat-intel-elmachete" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-card-icon">⚙️</div>
+      <div class="project-card-title">Automated Vulnerability Management</div>
+      <div class="project-card-desc">Executed the full vulnerability management lifecycle. Performed credentialed and web app scans using Nessus, configured SMTP alerting, and automated server patching using Ansible IaC.</div>
+      <div class="project-card-tags">
+        <span class="tag-sm">Nessus</span>
+        <span class="tag-sm">Ansible</span>
+        <span class="tag-sm">Patching</span>
+      </div>
+      <a href="https://github.com/Desire-George/automated-vulnerability-management" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+    </div>
     
-  </div> </section>
+  </div> 
+</section>
 
 <hr class="divider">
 
-<!-- CERTS -->
 <section id="certifications" class="fade-in">
   <div class="section-label">// 03 — Certifications</div>
   <div class="section-title">Credentials & Learning</div>
   <div class="certs-list">
 
     <div class="cert-item">
-      <div>
-        <div class="cert-name">CompTIA Security+</div>
-        <div class="cert-provider">CompTIA · [Date Completed]</div>
+      <span class="cert-icon">🏆</span>
+      <div class="cert-details">
+        <h4>ISC2 Certified in Cybersecurity (CC)</h4>
+        <p>ISC2</p>
       </div>
       <span class="cert-status status-done">✓ Completed</span>
     </div>
 
     <div class="cert-item">
-      <div>
-        <div class="cert-name">eJPT — eLearnSecurity Junior Penetration Tester</div>
-        <div class="cert-provider">eLearnSecurity · [Date Completed]</div>
+      <span class="cert-icon">📜</span>
+      <div class="cert-details">
+        <h4>Introduction to Digital Forensics</h4>
+        <p>Security Blue Team</p>
       </div>
       <span class="cert-status status-done">✓ Completed</span>
     </div>
 
     <div class="cert-item">
-      <div>
-        <div class="cert-name">Certified Ethical Hacker (CEH)</div>
-        <div class="cert-provider">EC-Council · In Progress</div>
+      <span class="cert-icon">📜</span>
+      <div class="cert-details">
+        <h4>Introduction to Cybersecurity & Networking Basics</h4>
+        <p>Cisco</p>
+      </div>
+      <span class="cert-status status-done">✓ Completed</span>
+    </div>
+
+    <div class="cert-item in-progress">
+      <span class="cert-icon">⏳</span>
+      <div class="cert-details">
+        <h4>Cisco CyberOps Associate</h4>
+        <p>Currently Studying</p>
       </div>
       <span class="cert-status status-progress">⟳ In Progress</span>
-    </div>
-
-    <div class="cert-item">
-      <div>
-        <div class="cert-name">Offensive Security Certified Professional (OSCP)</div>
-        <div class="cert-provider">Offensive Security · Planned</div>
-      </div>
-      <span class="cert-status status-planned">◌ Planned</span>
     </div>
 
   </div>
@@ -837,37 +853,36 @@
 
 <hr class="divider">
 
-<!-- WRITEUPS -->
 <section id="writeups" class="fade-in">
   <div class="section-label">// 04 — Write-ups</div>
   <div class="section-title">Documentation</div>
   <div class="writeup-list">
 
-<a href="https://github.com/Desire-George/misp-threat-intel-elmachete/blob/main/Threat_Actor_Profile.md" target="_blank" class="writeup-item">
-  <div>
-    <div class="writeup-platform">Threat Intelligence</div>
-    <div class="writeup-title">Threat Actor Profile: El Machete (APT-C-43)</div>
-    <div class="writeup-meta">
-      <span class="diff-medium">● OSINT</span>
-      <span>Cyber Espionage · TTP Analysis</span>
-      <span>2026</span>
-    </div>
-  </div>
-  <div class="writeup-arrow">→</div>
-</a>
+    <a href="https://github.com/Desire-George/misp-threat-intel-elmachete/blob/main/Threat_Actor_Profile.md" target="_blank" class="writeup-item">
+      <div>
+        <div class="writeup-platform">Threat Intelligence</div>
+        <div class="writeup-title">Threat Actor Profile: El Machete (APT-C-43)</div>
+        <div class="writeup-meta">
+          <span class="diff-medium">● OSINT</span>
+          <span>Cyber Espionage · TTP Analysis</span>
+          <span>2026</span>
+        </div>
+      </div>
+      <div class="writeup-arrow">→</div>
+    </a>
 
     <a href="https://github.com/Desire-George/automated-vulnerability-management/blob/main/Vulnerability_Management_Report.md" target="_blank" class="writeup-item">
-  <div>
-    <div class="writeup-platform">Vulnerability Management</div>
-    <div class="writeup-title">Executive Summary: Nginx Vulnerability Assessment</div>
-    <div class="writeup-meta">
-      <span class="diff-medium">● Nessus</span>
-      <span>Vulnerability Scanning · Patch Management</span>
-      <span>2026</span>
-    </div>
-  </div>
-  <div class="writeup-arrow">→</div>
-</a>
+      <div>
+        <div class="writeup-platform">Vulnerability Management</div>
+        <div class="writeup-title">Executive Summary: Nginx Vulnerability Assessment</div>
+        <div class="writeup-meta">
+          <span class="diff-medium">● Nessus</span>
+          <span>Vulnerability Scanning · Patch Management</span>
+          <span>2026</span>
+        </div>
+      </div>
+      <div class="writeup-arrow">→</div>
+    </a>
 
     <a href="#" class="writeup-item">
       <div>
@@ -900,7 +915,6 @@
 
 <hr class="divider">
 
-<!-- CONTACT -->
 <section id="contact" class="fade-in">
   <div class="section-label">// 05 — Contact</div>
   <div class="section-title">Get In Touch</div>
