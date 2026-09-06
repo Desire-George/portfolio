@@ -16,5 +16,5 @@ README.md         ← This file
 - **About** — Bio, tools, skills, focus areas
 - **Projects** — Home lab and hands-on work
 - **Certifications** — Completed, in-progress, planned
-- **Documentation** — Links to your GitHub write-up repos
+- **Documentation** — Links to my GitHub write-up repos
 - **Contact** — Email, LinkedIn, GitHub, X
